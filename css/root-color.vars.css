@@ -1,0 +1,35 @@
+:root {
+  /* colors */
+  /** static sizes */
+  --accent-color: gray;
+  --link-color: blue;
+  /** dynamic colors */
+  /*** light theme */
+  --LIGHT_color: black;
+  --LIGHT_background-color: white;
+  /*** dark theme */
+  --DARK_color: white;
+  --DARK_background-color: black;
+  /** apply */
+  /*** default (LIGHT) */
+  --color: var(--LIGHT_color);
+  --background-color: var(--LIGHT_background-color);
+  /*** System theme */
+  @media (prefers-color-scheme: light) {
+    --color: var(--LIGHT_color);
+    --background-color: var(--LIGHT_background-color);
+  }
+  @media (prefers-color-scheme: dark) {
+    --color: var(--DARK_color);
+    --background-color: var(--DARK_background-color);
+  }
+  /** manual-theme */
+  &.preferes-color-scheme_LIGHT {
+    --color: var(--LIGHT_color);
+    --background-color: var(--LIGHT_background-color);
+  }
+  &.preferes-color-scheme_DARK {
+    --color: var(--DARK_color);
+    --background-color: var(--DARK_background-color);
+  }
+}

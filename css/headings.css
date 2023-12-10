@@ -1,0 +1,136 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[role="heading"] {
+  --heading-steps: 6;
+
+  --heading-font-size-base: 1rem;
+  --heading-font-size-max-increase: 4rem;
+
+  --heading-font-weight-base: 400;
+  --heading-font-weight-max-increase: 300;
+
+  --heading-font-size-offset: calc(
+    (var(--heading-steps) - var(--heading-step)) / (var(--heading-steps) - 1)
+  );
+  --heading-font-weight-offset: calc(
+    (var(--heading-steps) - var(--heading-step)) / (var(--heading-steps) - 1)
+  );
+
+  text-align: center;
+  padding: calc(var(--padding) * var(--heading-font-size-offset));
+  font-size: calc(
+    var(--heading-font-size-base) + var(--heading-font-size-offset) *
+      var(--heading-font-size-max-increase)
+  );
+  font-weight: calc(
+    var(--heading-font-weight-base) + var(--heading-font-weight-offset) *
+      var(--heading-font-weight-max-increase)
+  );
+
+  /*
+  Above, we use a linear interpolation between 0 and 1.
+  We could use any monotinically increasing mapping from [0,1] to [0,1],
+  such as a power function or a trigonometric finction.
+  e.g. x^(some exponent)
+  e.g. (1-cos(x * pi))/2
+  e.g. (1-sin((x + 1/2)* pi))/2
+  */
+  &.power-scale {
+    /*
+    Note: so this fails in chrome as "pow" is not implementd
+    - https://developer.mozilla.org/en-US/docs/Web/CSS/pow
+    - https://caniuse.com/?search=css%20pow
+    - https://bugs.chromium.org/p/chromium/issues/detail?id=1284199
+
+    In the future, we may be able to pull in data from the html, i.e.:
+    ```css
+    @property --heading-font-size-exponent {
+      syntax: '<number>';
+      inherits: true;
+      initial-value: 1;
+    }
+    --heading-font-size-offset: attr(data-heading-font-size-exponent);
+    ```
+    ```html
+    <html data-heading-font-size-exponent="1.2">
+      ...
+      <h1 class="power-scale" >...</h1>
+      ...
+    </html>
+    ```
+    */
+    --heading-font-size-exponent: 1;
+    --heading-font-size-offset: calc(
+      pow(
+        calc(
+          (var(--heading-steps) - var(--heading-step)) /
+            (var(--heading-steps) - 1)
+        ),
+        var(--heading-font-size-exponent)
+      )
+    );
+    --heading-font-weight-exponent: 1;
+    --heading-font-weight-offset: calc(
+      pow(
+        calc(
+          (var(--heading-steps) - var(--heading-step)) /
+            (var(--heading-steps) - 1)
+        ),
+        var(--heading-font-weight-exponent)
+      )
+    );
+  }
+  &.trig-scale {
+    --heading-font-size-offset: calc(
+      (
+          1 -
+            (
+              cos(
+                (var(--heading-steps) - var(--heading-step)) /
+                  (var(--heading-steps) - 1) * 3.14159
+              )
+            )
+        ) / 2
+    );
+    --heading-font-weight-offset: calc(
+      (
+          1 -
+            (
+              cos(
+                (var(--heading-steps) - var(--heading-step)) /
+                  (var(--heading-steps) - 1) * 3.14159
+              )
+            )
+        ) / 2
+    );
+  }
+}
+
+h1,
+[role="heading"][aria-level="1"] {
+  --heading-step: 1;
+}
+h2,
+[role="heading"][aria-level="2"] {
+  --heading-step: 2;
+}
+h3,
+[role="heading"][aria-level="3"] {
+  --heading-step: 3;
+}
+h4,
+[role="heading"][aria-level="4"] {
+  --heading-step: 4;
+}
+h5,
+[role="heading"][aria-level="5"] {
+  --heading-step: 5;
+}
+h6,
+[role="heading"][aria-level="6"] {
+  --heading-step: 6;
+}

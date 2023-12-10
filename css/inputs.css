@@ -1,0 +1,60 @@
+input:not([type]),
+input:not([type="checkbox"]),
+input:not([type="radio"]),
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  font-size: inherit;
+}
+input[type="checkbox"] {
+}
+input[type="radio"] {
+}
+textarea {
+  resize: none;
+}
+a,
+button.a {
+  text-decoration: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--link-color);
+  background: none;
+  display: inline;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:active {
+    text-decoration: underline;
+  }
+  &:focus {
+    text-decoration: underline;
+  }
+  &:visited {
+    text-decoration: underline;
+  }
+}
+button:not(.a) {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border: 1px solid var(--color);
+  border-radius: 0;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--accent-color);
+  }
+  &:active {
+  }
+  &:focus {
+  }
+}

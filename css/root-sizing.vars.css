@@ -1,0 +1,54 @@
+:root {
+  /* sizes */
+  /** static sizes */
+  --header-height: 32px;
+  --footer-height: 32px;
+  /** dynamic sizes */
+  /*** S0: 0 - 320px: Tiny devices */
+  --S0_font-size: 10px;
+  --S0_padding: 0rem;
+  /*** S1: 321px — 480px: Mobile devices. */
+  --S1_font-size: 12px;
+  --S1_padding: 1rem;
+  /*** S2: 481px — 768px: iPads, Tablets. size */
+  --S2_font-size: 14px;
+  --S2_padding: 2rem;
+  /*** S3: 769px — 1024px: Small screens, laptops. size */
+  --S3_font-size: 16px;
+  --S3_padding: 4rem;
+  /*** S4: 1025px — 1200px: Desktops, large screens. size */
+  --S4_font-size: 18px;
+  --S4_padding: 6rem;
+  /*** S5: 1201px and more — Extra large screens, TV. size */
+  --S5_font-size: 20px;
+  --S5_padding: 8rem;
+  /** apply */
+  /*** S0 (default) */
+  --font-size: var(--S0_font-size);
+  --padding: var(--S0_padding);
+  /*** S1 */
+  @media (width > 320px) {
+    --padding: var(--S1_padding);
+    --font-size: var(--S1_font-size);
+  }
+  /*** S2 */
+  @media (width > 480px) {
+    --padding: var(--S2_padding);
+    --font-size: var(--S2_font-size);
+  }
+  /*** S3 */
+  @media (width > 768px) {
+    --padding: var(--S3_padding);
+    --font-size: var(--S3_font-size);
+  }
+  /*** S4 */
+  @media (width > 1024px) {
+    --padding: var(--S4_padding);
+    --font-size: var(--S4_font-size);
+  }
+  /*** S5 */
+  @media (width > 1200px) {
+    --padding: var(--S5_padding);
+    --font-size: var(--S5_font-size);
+  }
+}

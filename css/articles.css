@@ -1,0 +1,147 @@
+article {
+}
+/* stylelint-disable block-no-empty */
+article.from-markdown_astro {
+  /* paragraph: ? */
+  p {
+  }
+  /* unordered list: - ? */
+  ul {
+    > li {
+    }
+  }
+  /* ordered list: 1. ? */
+  ol {
+    > li {
+    }
+  }
+  /* quote: > ? */
+  blockquote {
+    p {
+      /* quote attribution: > - ? */
+      cite {
+        sup {
+        }
+      }
+    }
+  }
+
+  /* code block: ```\n?\n```, \s\s\s\s\s\s\s\s ? */
+  pre {
+    > code {
+    }
+  }
+
+  /* horizontal rule: --- */
+  hr {
+  }
+
+  /* table: |?|?|\n|_|_|\n|?|?|, see: https://www.markdownguide.org/extended-syntax/ */
+  table {
+    > thead {
+      > tr {
+        > th {
+        }
+        > th[align="left"] {
+        }
+        > th[align="right"] {
+        }
+        > th[align="center"] {
+        }
+      }
+    }
+    > tbody {
+      > tr {
+        > td {
+        }
+        > td[align="left"] {
+        }
+        > td[align="right"] {
+        }
+        > td[align="center"] {
+        }
+      }
+    }
+  }
+  /* headings: #...###### ? */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+  }
+
+  /* # ? */
+  h1 {
+  }
+  /* ## ? */
+  h2 {
+  }
+  /* ### ? */
+  h3 {
+  }
+  /* #### ? */
+  h4 {
+  }
+  /* ##### ? */
+  h5 {
+  }
+  /* ###### ? */
+  h6 {
+  }
+
+  p,
+  li {
+    /* these items are always wrapped in either a paragraph or a list */
+
+    /* italicized:  *?*, _?_ */
+    em {
+    }
+    /* bold: **?** */
+    strong {
+    }
+    /* strikethrough: ~~ ? ~~ , ~ ? ~ */
+    del {
+    }
+    /* inline code: `?` */
+    code {
+    }
+    /* image: ![?](?) */
+    img {
+    }
+    /* link: [?](?) */
+    a {
+      &:hover {
+      }
+      &:active {
+      }
+      &:visited {
+      }
+      &:focus {
+      }
+    }
+    /* footnote key: ? [^1] */
+    sup {
+      a {
+      }
+    }
+    /* footnote values: [^1]: ? */
+    ol {
+      > li {
+        > a {
+          > sup {
+          }
+        }
+      }
+    }
+  }
+  li {
+    /* checklist unchecked: - [ ] ? */
+    > input[type="checkbox"][disabled] {
+      /* checklist checked: - [x] ? */
+      &:checked {
+      }
+    }
+  }
+}

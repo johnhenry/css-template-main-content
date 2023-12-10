@@ -1,0 +1,18 @@
+/* # primary reset */
+@import "./reset.css";
+/* @import "./normalize.css"; */
+/* # global effects */
+@import "./border-boxes.css";
+@import "./zero-margins.css";
+/* # variables */
+@import "./root.vars.css";
+@import "./root-sizing.vars.css";
+@import "./root-color.vars.css";
+/* components */
+@import "./root.css";
+@import "./sections.css";
+@import "./articles.css";
+@import "./headings.css";
+@import "./inputs.css";
+@import "./article.from-markdown_astro.css";
+@import "./call-to-action.css";
